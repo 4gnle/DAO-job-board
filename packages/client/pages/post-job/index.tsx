@@ -3,13 +3,15 @@ import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useEthers } from '@usedapp/core';
 
-import { Box } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import { Keyword } from '@/types';
 
 //The number in the file names tell you which step in the form they are
 import JobBasics from '@/components/forms/post-job/1_JobBasics';
 import JobDetails from '@/components/forms/post-job/2_JobDetails';
 import JobSummary from '@/components/forms/post-job/3_JobSummary';
+import JobPreview from '@/components/jobs/JobPreview';
+
 import { supabase } from '@/common/supabase';
 
 export default function CreateProject() {
@@ -89,6 +91,7 @@ export default function CreateProject() {
       p="0.5%"
       h="100%"
     >
+      <Flex align="center" justify="space-between">
       <form>
         {basicsPage ? (
           <JobBasics
@@ -121,6 +124,9 @@ export default function CreateProject() {
           />
         ) : null}
       </form>
+
+      <JobPreview formData={formData} />
+      </Flex>
     </Box>
   );
 }

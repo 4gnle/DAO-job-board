@@ -21,7 +21,8 @@ import JobPostModal from '../modals/jobs/JobPost';
 
 export default function JobCard({
   // Setting defaults until we start passing some form of data into the component
-  position = 'Frontend Magician',
+  company_id = '2',
+  title = 'Frontend Magician',
   compensation = '0.6 ETH',
   description = 'We already have the best design skills in web3. No chance you’ll be able to improve on what we’ve got but why not come along and learn something?',
 }: Job) {
@@ -56,7 +57,7 @@ export default function JobCard({
               closeJobModal={closeJobModal}
               compensation={compensation}
               description={description}
-              position={position}
+              position={title}
               companyInfo={companyInfo as any}
             />
           </ModalContent>
@@ -90,7 +91,7 @@ export default function JobCard({
         <JobHeader companyInfo={companyInfo} />
         <Box ml="0.5%" maxW="100%" p="40px" onClick={openJobModal}>
           <Heading variant="header5" mb="1.5%">
-            {position}
+            {title}
           </Heading>
           <HStack mb="15px">
             <Text fontSize="lg" color="primary.500" fontWeight="semibold">
@@ -147,8 +148,28 @@ export default function JobCard({
 const JobHeader = ({ companyInfo }: any) => {
   const [isFavorited, setIsFavorited] = useState(false);
 
+  const content = (
+    <Flex mt="1%" mb="2.5%">
+        <Image
+          w="45px"
+          h="45px"
+          borderRadius="6px"
+          border="1px solid black"
+          src={companyInfo.logo_url}
+          alt={`${companyInfo.name ?? 'organization'} logo`}
+          mr="15px"
+        />
+        <VStack spacing="micro" alignItems="start">
+          <Heading size="sm">{companyInfo.name}</Heading>
+          <Text color="neutral.400" fontSize="xs" mb="32px">
+            {companyInfo.organization_description}
+          </Text>
+        </VStack>
+      </Flex>
+  )
+
   return (
-    <Box p="40px" borderBottom="1px" borderColor="neutral.200">
+    <Box p="25px" borderBottom="1px" borderColor="neutral.200">
       <Flex align="center" justify="space-between">
         <HStack>
           <Link
