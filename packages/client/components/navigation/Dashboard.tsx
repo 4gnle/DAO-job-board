@@ -167,7 +167,11 @@ export default function Dashboard() {
   );
 
   return (
+<<<<<<< HEAD
     <Box as="section" w="100%" pos="fixed" zIndex="overlay">
+=======
+    <Box as="section" w="100%" pos="fixed" top="0" zIndex={9998}>
+>>>>>>> 798e3dd (Convert navbar to grid to match dashboard content)
       <SidebarContent
         display={{ lg: 'unset', md: 'none', sm: 'none', base: 'none' }}
         transition="0.5s ease"

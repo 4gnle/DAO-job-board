@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useEthers } from '@usedapp/core';
 
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Grid, GridItem } from '@chakra-ui/react';
 import { Keyword } from '@/types';
 
 //The number in the file names tell you which step in the form they are
@@ -82,16 +82,34 @@ export default function CreateProject() {
   return (
     <Box
       bg={'none'}
-      width={{ '2xl': '70%', lg: '70%', md: '90%', sm: '100%' }}
+      width="auto"
       margin="auto"
+<<<<<<< HEAD
       pt={{ '2xl': '5%', lg: '7%', sm: '10%' }}
       pb={{ '2xl': '10%', lg: '10%', md: '15%', sm: '20%', base: '15%' }}
       pl={{ '2xl': '5%', lg: '12%', sm: 'none', base: 'none' }}
       boxSizing="border-box"
       p="0.5%"
       h="100%"
+=======
+      ml={{ lg: '60', md: '0' }}
+      mt={14}
+      boxSizing="border-box"
+      height="calc(100vh - var(--chakra-space-14))"
+
+>>>>>>> 798e3dd (Convert navbar to grid to match dashboard content)
     >
-      <Flex align="center" justify="space-between">
+      <Grid 
+        templateColumns='repeat(5, 1fr)' 
+        gap={6}
+        h="100%"
+        as="header"
+        bg="utility.light80"
+        borderBottomWidth="1px"
+        borderColor="gray.200"
+      >
+        <GridItem colSpan={3}>
+
       <form>
         {basicsPage ? (
           <JobBasics
@@ -124,9 +142,12 @@ export default function CreateProject() {
           />
         ) : null}
       </form>
+      </GridItem>
+      <GridItem colSpan={2} d="flex" alignItems="center" justifyContent="center" borderLeftWidth="1px" borderColor="gray.200">
 
-      <JobPreview formData={formData} />
-      </Flex>
+        <JobPreview formData={formData} />
+      </GridItem>
+    </Grid>
     </Box>
   );
 }
