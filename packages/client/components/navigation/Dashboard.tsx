@@ -181,7 +181,9 @@ export default function Dashboard() {
 =======
                 <Flex alignItems="center">
                   <Users />
-                  <Text ml="3" size="md">{t('components.navigation.dashboard.devs')}</Text>
+                  <Text ml="3" size="md">
+                    {t('components.navigation.dashboard.devs')}
+                  </Text>
                 </Flex>
               </Link>
             </NextLink>
@@ -222,8 +224,10 @@ export default function Dashboard() {
                 transition="0.2s"
               >
                 <Flex alignItems="center">
-                  <ClipboardList/>
-                  <Text ml="3" size="md">{t('components.navigation.dashboard.jobs_list')}</Text>
+                  <ClipboardList />
+                  <Text ml="3" size="md">
+                    {t('components.navigation.dashboard.jobs_list')}
+                  </Text>
                 </Flex>
               </Link>
             </NextLink>
@@ -239,6 +243,7 @@ export default function Dashboard() {
                 variant="morePadding"
                 bg="neutral.700"
                 _hover={{ bg: 'neutral.500' }}
+                size="sm"
               >
                 + Create new job
               </Button>
@@ -251,20 +256,17 @@ export default function Dashboard() {
       <Divider my="5" />
 
       <Box p="4" textAlign="center" mb="5">
-      <Link>
-        <Button
-          colorScheme='neutral' 
-          variant="morePadding"
-          border='1px solid #000'
-        >
-          
-          <Text mr="2">Contact us in Discord</Text>
-        </Button>
-      </Link>
-
+        <Link href="https://discord.gg/devdao" isExternal>
+          <Button
+            colorScheme="neutral"
+            variant="morePadding"
+            border="1px solid #000"
+            size="sm"
+          >
+            <Text mr="2">Contact us in Discord</Text>
+          </Button>
+        </Link>
       </Box>
-
-
     </Box>
   );
 
