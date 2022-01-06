@@ -1,4 +1,4 @@
-import { extendTheme, ThemeConfig } from '@chakra-ui/react';
+import { extendTheme, space, ThemeConfig } from '@chakra-ui/react';
 import { createBreakpoints } from '@chakra-ui/theme-tools';
 
 const breakpoints = createBreakpoints({
@@ -144,6 +144,7 @@ export const theme = extendTheme({
     96: '24rem',
   },
   components: {
+<<<<<<< HEAD
     Text: {
       variants: {
         micro: {
@@ -267,4 +268,17 @@ export const theme = extendTheme({
       },
     },
   },
+=======
+    Button: {
+      variants: {
+        morePadding: {
+          paddingLeft: 9,
+          paddingRight: 9,
+          paddingTop: 7,
+          paddingBottom: 7  
+        }
+      }
+    }
+  }
+>>>>>>> f308cdc (Add sidebar buttons; replace icons w tabler icons)
 });

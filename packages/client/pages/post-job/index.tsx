@@ -85,6 +85,7 @@ export default function CreateProject() {
       width="auto"
       margin="auto"
 <<<<<<< HEAD
+<<<<<<< HEAD
       pt={{ '2xl': '5%', lg: '7%', sm: '10%' }}
       pb={{ '2xl': '10%', lg: '10%', md: '15%', sm: '20%', base: '15%' }}
       pl={{ '2xl': '5%', lg: '12%', sm: 'none', base: 'none' }}
@@ -98,9 +99,15 @@ export default function CreateProject() {
       height="calc(100vh - var(--chakra-space-14))"
 
 >>>>>>> 798e3dd (Convert navbar to grid to match dashboard content)
+=======
+      ml={{ lg: '72', md: '0' }}
+      mt={14}
+      boxSizing="border-box"
+      height="calc(100vh - var(--chakra-space-14))"
+>>>>>>> f308cdc (Add sidebar buttons; replace icons w tabler icons)
     >
-      <Grid 
-        templateColumns='repeat(5, 1fr)' 
+      <Grid
+        templateColumns="repeat(5, 1fr)"
         gap={6}
         h="100%"
         as="header"
@@ -108,46 +115,51 @@ export default function CreateProject() {
         borderBottomWidth="1px"
         borderColor="gray.200"
       >
-        <GridItem colSpan={3}>
+        <GridItem colSpan={3} p={12}>
+          <form>
+            {basicsPage ? (
+              <JobBasics
+                goToDetails={goToDetails}
+                goBack={goBack}
+                formData={formData}
+                onChange={onChange}
+              />
+            ) : null}
 
-      <form>
-        {basicsPage ? (
-          <JobBasics
-            goToDetails={goToDetails}
-            goBack={goBack}
-            formData={formData}
-            onChange={onChange}
-          />
-        ) : null}
+            {detailsPage ? (
+              <JobDetails
+                goToBasics={goToBasics}
+                goToSummary={goToSummary}
+                jobKeywords={jobKeywords as Keyword[]}
+                setJobKeywords={setJobKeywords}
+                formData={formData}
+                onChange={onChange}
+              />
+            ) : null}
 
-        {detailsPage ? (
-          <JobDetails
-            goToBasics={goToBasics}
-            goToSummary={goToSummary}
-            jobKeywords={jobKeywords as Keyword[]}
-            setJobKeywords={setJobKeywords}
-            formData={formData}
-            onChange={onChange}
-          />
-        ) : null}
-
-        {summaryPage ? (
-          <JobSummary
-            formData={formData}
-            jobKeywords={jobKeywords as any}
-            goToDetails={goToDetails}
-            goToBasics={goToBasics}
-            createJob={createJob}
-            onChange={onChange}
-          />
-        ) : null}
-      </form>
-      </GridItem>
-      <GridItem colSpan={2} d="flex" alignItems="center" justifyContent="center" borderLeftWidth="1px" borderColor="gray.200">
-
-        <JobPreview formData={formData} />
-      </GridItem>
-    </Grid>
+            {summaryPage ? (
+              <JobSummary
+                formData={formData}
+                jobKeywords={jobKeywords as any}
+                goToDetails={goToDetails}
+                goToBasics={goToBasics}
+                createJob={createJob}
+                onChange={onChange}
+              />
+            ) : null}
+          </form>
+        </GridItem>
+        <GridItem
+          colSpan={2}
+          d="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderLeftWidth="1px"
+          borderColor="gray.200"
+        >
+          <JobPreview formData={formData} />
+        </GridItem>
+      </Grid>
     </Box>
   );
 }
