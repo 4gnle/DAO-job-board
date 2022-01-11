@@ -4,23 +4,15 @@ import { supabase } from '@/common/supabase';
 
 import {
   Box,
-  Grid,
+  Flex,
   Text,
   HStack,
   Heading,
   Select,
   IconButton,
   Avatar,
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  Button,
-  GridItem,
->>>>>>> 798e3dd (Convert navbar to grid to match dashboard content)
-=======
   GridItem,
   Divider,
->>>>>>> dcd1a5c (Add mobile breakpoints)
 } from '@chakra-ui/react';
 import { useEthers } from '@usedapp/core';
 import { useRouter } from 'next/router';
@@ -73,9 +65,8 @@ function Navbar({ sidebar, setUserPurpose }: any) {
 
   return (
     <Box ml={{ xl: '72', lg: '0' }}>
-      <Grid
-        templateColumns="repeat(5, 1fr)"
-        gap={6}
+      <Flex
+        justifyContent="space-between"
         as="header"
         bg="utility.light80"
         borderBottomWidth="1px"
@@ -106,42 +97,6 @@ function Navbar({ sidebar, setUserPurpose }: any) {
           </Text>
         </GridItem>
 
-<<<<<<< HEAD
-        <GridItem w="100%" h="14" justifyContent="flex-end" alignItems="center" colSpan={2} d="flex">
-
-        {account ? (
-          /**
-           * @todo Add icon to select options.
-           * @todo Update/remove route redirect from option onchange event as agreed upon
-           * @todo Add onClick for profile settings and settings
-           */
-          <HStack
-            align="center"
-            color="neutral.400"
-            borderX="1px"
-            borderColor="neutral.200"
-            w="100%"
-            justifyItems="stretch"
-            h="full"
-            borderRight="none"
-          >
-            <Select
-              size="sm"
-              border="none"
-              w="full"
-              p="10px"
-              focusBorderColor="none"
-              onChange={(e) => handlePurposeChange(e)}
-              flex="1"
-            >
-              <option value="/earn">
-                {t('components.navigation.navbar.seeking')}
-              </option>
-              <option value="/hire">
-                {t('components.navigation.navbar.hiring')}
-              </option>
-            </Select>
-=======
         <GridItem
           w="100%"
           h="14"
@@ -150,14 +105,12 @@ function Navbar({ sidebar, setUserPurpose }: any) {
           colSpan={2}
           d="flex"
         >
-          <Divider orientation='vertical' d={{ 'sm' : 'none', 'md': 'unset' }} />
           {account ? (
             /**
              * @todo Add icon to select options.
              * @todo Update/remove route redirect from option onchange event as agreed upon
              * @todo Add onClick for profile settings and settings
              */
->>>>>>> f308cdc (Add sidebar buttons; replace icons w tabler icons)
             <HStack
               align="center"
               color="neutral.400"
@@ -165,16 +118,19 @@ function Navbar({ sidebar, setUserPurpose }: any) {
               justifyItems={{ 'sm': 'center', 'md': 'stretch' }}
               h="full"
               borderRight="none"
+              px={4}
             >
+              <Divider orientation='vertical' d={{ 'sm' : 'none', 'md': 'unset' }} />
               <Select
                 size="sm"
                 border="none"
                 w="75"
                 onChange={(e) => handlePurposeChange(e)}
                 flex="1"
+                pl={0}
                 d={{ 'sm': 'none', 'md': 'unset' }}
               >
-                <option value="">- placeholder -</option>
+                <option value="">I am here to...</option>
                 <option value="/earn">
                   {t('components.navigation.navbar.seeking')}
                 </option>
@@ -209,7 +165,6 @@ function Navbar({ sidebar, setUserPurpose }: any) {
                 <Settings size={24} />
               </Box>
             </HStack>
-<<<<<<< HEAD
             <Box px={3}>
               <Settings size={24} onClick={deactivate} />
             </Box>
@@ -218,24 +173,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
           <ConnectButton />
         )}
       </GridItem>
-=======
-          ) : (
-            <NextLink href={'/auth'} passHref>
-              <Link display={{ sm: 'none', md: 'flex' }}>
-                <Button
-                  color="white"
-                  bg="neutral.700"
-                  _hover={{ bg: 'neutral.500', textDecoration: 'none' }}
-                  as="a"
-                >
-                  Sign Up
-                </Button>
-              </Link>
-            </NextLink>
-          )}
-        </GridItem>
->>>>>>> f308cdc (Add sidebar buttons; replace icons w tabler icons)
-      </Grid>
+      </Flex>
     </Box>
   );
 }
