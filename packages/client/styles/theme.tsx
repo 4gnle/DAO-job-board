@@ -145,6 +145,15 @@ export const theme = extendTheme({
   },
   components: {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    Divider: {
+      baseStyle: {
+        borderColor: 'neutral.200',
+        opacity: 1,
+      }
+    },
+>>>>>>> 226d921 (Change Divider default color)
     Text: {
       variants: {
         micro: {
