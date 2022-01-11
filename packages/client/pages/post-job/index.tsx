@@ -84,31 +84,9 @@ export default function CreateProject() {
       bg={'none'}
       width="auto"
       margin="auto"
-<<<<<<< HEAD
-<<<<<<< HEAD
-      pt={{ '2xl': '5%', lg: '7%', sm: '10%' }}
-      pb={{ '2xl': '10%', lg: '10%', md: '15%', sm: '20%', base: '15%' }}
-      pl={{ '2xl': '5%', lg: '12%', sm: 'none', base: 'none' }}
-      boxSizing="border-box"
-      p="0.5%"
-      h="100%"
-=======
-      ml={{ lg: '60', md: '0' }}
-      mt={14}
       boxSizing="border-box"
       height="calc(100vh - var(--chakra-space-14))"
-
->>>>>>> 798e3dd (Convert navbar to grid to match dashboard content)
-=======
-      ml={{ lg: '72', md: '0' }}
       mt={{ lg: 14, sm: 6 }}
-      boxSizing="border-box"
-<<<<<<< HEAD
-      height="calc(100vh - var(--chakra-space-14))"
->>>>>>> f308cdc (Add sidebar buttons; replace icons w tabler icons)
-=======
-      height={{ lg: "calc(100vh - var(--chakra-space-14))", sm: 'auto' }}
->>>>>>> dcd1a5c (Add mobile breakpoints)
     >
       <Grid
         templateColumns={{ lg: "repeat(5, 1fr)", sm: "repeat(1, 1fr)" }}

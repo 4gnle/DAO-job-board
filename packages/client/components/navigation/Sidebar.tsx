@@ -20,7 +20,7 @@ import { useState } from 'react';
 
 import Navbar from './Navbar';
 
-export default function Dashboard() {
+export default function Sidebar() {
   const { t } = useTranslation('common');
   const sidebar = useDisclosure();
 
@@ -76,32 +76,16 @@ export default function Dashboard() {
         justifyContent="space-between"
         height="100%"
       >
-<<<<<<< HEAD
         {userPurpose === '/hire' ? (
           <Stack mt="5%">
-=======
-        <Stack
-          as="nav"
-          fontSize="sm"
-          color="neutral.600"
-          aria-label="Main Navigation"
-          spacing="xs"
-        >
-          <Stack my="5">
->>>>>>> f308cdc (Add sidebar buttons; replace icons w tabler icons)
             <Heading
               color="neutral.300"
               letterSpacing="2px"
               font="Inter"
               justify="left"
               fontSize="xs"
-<<<<<<< HEAD
               p="3"
               pl="5"
-=======
-              ml="8"
-              py="4"
->>>>>>> f308cdc (Add sidebar buttons; replace icons w tabler icons)
             >
               {t('components.navigation.dashboard.hiring')}
             </Heading>
@@ -110,11 +94,7 @@ export default function Dashboard() {
                 onClick={sidebar.onClose}
                 color="neutral.300"
                 p="2"
-<<<<<<< HEAD
                 pl="5"
-=======
-                pl="8"
->>>>>>> f308cdc (Add sidebar buttons; replace icons w tabler icons)
                 w="100%"
                 borderRadius="0px"
                 _hover={{
@@ -125,57 +105,6 @@ export default function Dashboard() {
                 _focus={{ textDecoration: 'none', border: 'none' }}
                 transition="0.2s"
               >
-<<<<<<< HEAD
-                <Text size="md">
-                  <FontAwesomeIcon icon={faUsers} />{' '}
-                  {t('components.navigation.dashboard.devs')}
-                </Text>
-              </Link>
-            </NextLink>
-          </Stack>
-        ) : null}
-
-        {userPurpose === '/earn' ? (
-          <Stack>
-            <Heading
-              color="neutral.300"
-              letterSpacing="2px"
-              font="Inter"
-              justify="left"
-              fontSize="xs"
-              p="3"
-              pl="5"
-              mt={2}
-            >
-              {t('components.navigation.dashboard.seeking')}
-            </Heading>
-            <NextLink href={'/jobs'} passHref>
-              <Link
-                onClick={sidebar.onClose}
-                p="2"
-                pl="5"
-                color="neutral.300"
-                w="100%"
-                borderRadius="0px"
-                _hover={{
-                  textDecoration: 'none',
-                  color: 'black',
-                  borderLeft: '5px solid #4E00EC',
-                }}
-                _focus={{ textDecoration: 'none', border: 'none' }}
-                transition="0.2s"
-              >
-                <Text size="md">
-                  <FontAwesomeIcon icon={faClipboardList} />{' '}
-                  {t('components.navigation.dashboard.jobs_list')}
-                </Text>
-              </Link>
-            </NextLink>
-          </Stack>
-        ) : null}
-
-        <Stack alignSelf="flex-end"></Stack>
-=======
                 <Flex alignItems="center">
                   <Users />
                   <Text ml="3" size="md">
@@ -185,22 +114,10 @@ export default function Dashboard() {
               </Link>
             </NextLink>
           </Stack>
-<<<<<<< HEAD
-=======
         ) : null}
->>>>>>> dcd1a5c (Add mobile breakpoints)
 
-<<<<<<< HEAD
-          <Stack
-            borderTop="1px solid"
-            borderColor="gray.200"
-            borderWidth="100%"
-            my="5"
-          >
-=======
         {userPurpose === '/earn' ? (
           <Stack my="5">
->>>>>>> c8dcb91 (Merge remote-tracking branch 'upstream/main')
             <Heading
               color="neutral.300"
               letterSpacing="2px"
@@ -238,26 +155,26 @@ export default function Dashboard() {
               </Link>
             </NextLink>
           </Stack>
-        </Stack>
+        ) : null}
 
-        <Box p="4" textAlign="center">
-          <NextLink href={'/post-job'} passHref>
-            <Link>
-              <Button
-                color="white"
-                colorScheme="neutral"
-                variant="morePadding"
-                bg="neutral.700"
-                _hover={{ bg: 'neutral.500' }}
-                size="sm"
-              >
-                + Create new job
-              </Button>
-            </Link>
-          </NextLink>
-        </Box>
->>>>>>> f308cdc (Add sidebar buttons; replace icons w tabler icons)
-      </Stack>
+        {userPurpose === '/hire' && (
+          <Box p="4" textAlign="center">
+            <NextLink href={'/post-job'} passHref>
+              <Link>
+                <Button
+                  color="white"
+                  colorScheme="neutral"
+                  variant="morePadding"
+                  bg="neutral.700"
+                  _hover={{ bg: 'neutral.500' }}
+                  size="sm"
+                >
+                  + Create new job
+                </Button>
+              </Link>
+            </NextLink>
+          </Box>
+        )}
 
       <Divider my="5" />
 
@@ -273,21 +190,20 @@ export default function Dashboard() {
           </Button>
         </Link>
       </Box>
-    </Box>
+    </Stack>
+  </Box>
   );
 
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <Box as="section" w="100%" pos="fixed" zIndex="overlay">
-=======
-    <Box as="section" w="100%" pos="fixed" top="0" zIndex={9998}>
->>>>>>> 798e3dd (Convert navbar to grid to match dashboard content)
-=======
     <Box as="section" w="100%" pos="fixed" zIndex="overlay" top="0">
->>>>>>> c8dcb91 (Merge remote-tracking branch 'upstream/main')
       <SidebarContent
-        display={{ lg: 'flex', md: 'none', sm: 'none', base: 'none' }}
+        display={{
+          xl: 'flex',
+          lg: 'none',
+          md: 'none',
+          sm: 'none',
+          base: 'none',
+        }}
         flexFlow="column nowrap"
         justifyContent="space-between"
         transition="0.5s ease"
@@ -300,7 +216,8 @@ export default function Dashboard() {
         <DrawerOverlay
           display={{
             '2xl': 'none',
-            lg: 'none',
+            xl: 'unset',
+            lg: 'unset',
             md: 'unset',
             sm: 'unset',
             base: 'unset',
@@ -309,7 +226,8 @@ export default function Dashboard() {
         <DrawerContent
           display={{
             '2xl': 'none',
-            lg: 'none',
+            xl: 'unset',
+            lg: 'unset',
             md: 'unset',
             sm: 'unset',
             base: 'unset',
@@ -325,8 +243,7 @@ export default function Dashboard() {
           />
         </DrawerContent>
       </Drawer>
-
       <Navbar sidebar={sidebar} setUserPurpose={setUserPurpose} />
     </Box>
-  );
+  )
 }
