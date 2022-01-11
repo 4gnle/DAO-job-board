@@ -21,8 +21,8 @@ import JobPostModal from '../modals/jobs/JobPost';
 
 export default function JobCard({
   // Setting defaults until we start passing some form of data into the component
-  company_id = '2',
-  title = 'Frontend Magician',
+  company_id,
+  position = 'Frontend Magician',
   compensation = '0.6 ETH',
   description = 'We already have the best design skills in web3. No chance you’ll be able to improve on what we’ve got but why not come along and learn something?',
 }: Job) {
@@ -30,6 +30,7 @@ export default function JobCard({
 
   // Organization data is hardcoded as I am not currently aware of how this data will be pulled in.
   const companyInfo = {
+    id: company_id,
     name: 'Company Name',
     organization_description: 'NFT Marketplace',
     logo_url: '/DevDAO.png',
@@ -46,6 +47,25 @@ export default function JobCard({
     setJobModal(false);
   };
 
+  const jobDetails = (
+    <>
+      <Heading style={{ fontSize: '24px' }} mb="1.5%" fontWeight="medium">
+        {position}
+      </Heading>
+      <HStack mb="15px">
+        <Text fontSize="lg" color="primary.500" fontWeight="semibold">
+          {compensation}
+        </Text>
+        <Text color="neutral.500">/ month</Text>
+        <Text color="primary.200">&#183;</Text>
+        <Text color="neutral.400">UTC±3</Text>
+      </HStack>
+      <Text color="neutral.400" mt="1.5%">
+        {description}
+      </Text>
+    </>
+  );
+
   return (
     <>
       {jobModal && (
@@ -57,7 +77,7 @@ export default function JobCard({
               closeJobModal={closeJobModal}
               compensation={compensation}
               description={description}
-              position={title}
+              position={position}
               companyInfo={companyInfo as any}
             />
           </ModalContent>
@@ -91,7 +111,7 @@ export default function JobCard({
         <JobHeader companyInfo={companyInfo} />
         <Box ml="0.5%" maxW="100%" p="40px" onClick={openJobModal}>
           <Heading variant="header5" mb="1.5%">
-            {title}
+            {position}
           </Heading>
           <HStack mb="15px">
             <Text fontSize="lg" color="primary.500" fontWeight="semibold">
@@ -150,51 +170,40 @@ const JobHeader = ({ companyInfo }: any) => {
 
   const content = (
     <Flex mt="1%" mb="2.5%">
-        <Image
-          w="45px"
-          h="45px"
-          borderRadius="6px"
-          border="1px solid black"
-          src={companyInfo.logo_url}
-          alt={`${companyInfo.name ?? 'organization'} logo`}
-          mr="15px"
-        />
-        <VStack spacing="micro" alignItems="start">
-          <Heading size="sm">{companyInfo.name}</Heading>
-          <Text color="neutral.400" fontSize="xs" mb="32px">
-            {companyInfo.organization_description}
-          </Text>
-        </VStack>
-      </Flex>
-  )
+      <Image
+        w="45px"
+        h="45px"
+        borderRadius="6px"
+        border="1px solid black"
+        src={companyInfo.logo_url}
+        alt={`${companyInfo.name ?? 'organization'} logo`}
+        mr="15px"
+      />
+      <VStack spacing="micro" alignItems="start">
+        <Heading size="sm">{companyInfo.name}</Heading>
+        <Text color="neutral.400" fontSize="xs" mb="32px">
+          {companyInfo.organization_description}
+        </Text>
+      </VStack>
+    </Flex>
+  );
 
   return (
     <Box p="25px" borderBottom="1px" borderColor="neutral.200">
       <Flex align="center" justify="space-between">
         <HStack>
-          <Link
-            href="/recruiter-name"
-            _hover={{ textDecoration: 'none' }}
-            _focus={{ textDecoration: 'none', border: 'none' }}
-          >
-            <Flex mt="1%" mb="2.5%">
-              <Image
-                w="45px"
-                h="45px"
-                borderRadius="6px"
-                border="1px solid black"
-                src={companyInfo.logo_url}
-                alt={`${companyInfo ?? 'organization'} logo`}
-                mr="15px"
-              />
-              <VStack spacing="micro" alignItems="start">
-                <Heading size="sm">{companyInfo.name}</Heading>
-                <Text color="neutral.400" fontSize="xs" mb="32px">
-                  {companyInfo.organization_description}
-                </Text>
-              </VStack>
-            </Flex>
-          </Link>
+          {companyInfo.id ? (
+            <Link
+              href="/recruiter-name"
+              _hover={{ textDecoration: 'none' }}
+              _focus={{ textDecoration: 'none', border: 'none' }}
+            >
+              {content}
+            </Link>
+          ) : (
+            content
+          )}
+          ;
         </HStack>
 
         <svg width="0" height="0">

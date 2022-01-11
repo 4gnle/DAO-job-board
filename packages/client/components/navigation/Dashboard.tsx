@@ -189,12 +189,17 @@ export default function Dashboard() {
             </NextLink>
           </Stack>
 
+<<<<<<< HEAD
           <Stack
             borderTop="1px solid"
             borderColor="gray.200"
             borderWidth="100%"
             my="5"
           >
+=======
+        {userPurpose === '/earn' ? (
+          <Stack my="5">
+>>>>>>> c8dcb91 (Merge remote-tracking branch 'upstream/main')
             <Heading
               color="neutral.300"
               letterSpacing="2px"
@@ -272,10 +277,14 @@ export default function Dashboard() {
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Box as="section" w="100%" pos="fixed" zIndex="overlay">
 =======
     <Box as="section" w="100%" pos="fixed" top="0" zIndex={9998}>
 >>>>>>> 798e3dd (Convert navbar to grid to match dashboard content)
+=======
+    <Box as="section" w="100%" pos="fixed" zIndex="overlay" top="0">
+>>>>>>> c8dcb91 (Merge remote-tracking branch 'upstream/main')
       <SidebarContent
         display={{ lg: 'unset', md: 'none', sm: 'none', base: 'none' }}
         transition="0.5s ease"
