@@ -9,14 +9,18 @@ import {
   HStack,
   Heading,
   Select,
-  Flex,
   IconButton,
   Avatar,
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   Button,
   GridItem,
 >>>>>>> 798e3dd (Convert navbar to grid to match dashboard content)
+=======
+  GridItem,
+  Divider,
+>>>>>>> dcd1a5c (Add mobile breakpoints)
 } from '@chakra-ui/react';
 import { useEthers } from '@usedapp/core';
 import { useRouter } from 'next/router';
@@ -91,6 +95,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
             display={{ lg: 'none', md: 'inline-flex' }}
             onClick={sidebar.isOpen ? sidebar.onClose : sidebar.onOpen}
             size="sm"
+            mr={3}
             icon={<HamburgerIcon />}
           />
 
@@ -145,6 +150,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
           colSpan={2}
           d="flex"
         >
+          <Divider orientation='vertical' d={{ 'sm' : 'none', 'md': 'unset' }} />
           {account ? (
             /**
              * @todo Add icon to select options.
@@ -155,10 +161,8 @@ function Navbar({ sidebar, setUserPurpose }: any) {
             <HStack
               align="center"
               color="neutral.400"
-              borderX="1px"
-              borderColor="neutral.200"
               w="100%"
-              justifyItems="stretch"
+              justifyItems={{ 'sm': 'center', 'md': 'stretch' }}
               h="full"
               borderRight="none"
             >
@@ -168,6 +172,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
                 w="75"
                 onChange={(e) => handlePurposeChange(e)}
                 flex="1"
+                d={{ 'sm': 'none', 'md': 'unset' }}
               >
                 <option value="">- placeholder -</option>
                 <option value="/earn">
@@ -177,11 +182,10 @@ function Navbar({ sidebar, setUserPurpose }: any) {
                   {t('components.navigation.navbar.hiring')}
                 </option>
               </Select>
+              <Divider orientation='vertical' />
               <HStack
                 align="center"
                 color="neutral.400"
-                borderX="1px"
-                borderColor="neutral.200"
                 h="full"
                 px={3}
               >
@@ -190,6 +194,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
                   whiteSpace="nowrap"
                   overflow="hidden"
                   textOverflow="ellipsis"
+                  d={{ 'sm': 'none', 'md': 'unset' }}
                 >
                   {account.slice(0, 4)}...{account.slice(account.length - 4)}
                 </Text>
@@ -199,7 +204,8 @@ function Navbar({ sidebar, setUserPurpose }: any) {
                   <ChevronDown onClick={() => setIsOpen(!isOpen)} />
                 )}
               </HStack>
-              <Box px={3}>
+              <Divider orientation='vertical' d={{ 'sm': 'none', 'md': 'unset' }} />
+              <Box px={3} d={{ 'sm': 'none', 'md': 'unset' }}>
                 <Settings size={24} />
               </Box>
             </HStack>

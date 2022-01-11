@@ -41,10 +41,7 @@ export default function Dashboard() {
       borderColor="gray.200"
       borderRightWidth="1px"
       w="72"
-      // {...props}
-      d="flex"
-      flexFlow="column nowrap"
-      justifyContent="space-between"
+      {...props}
     >
       <Flex
         borderBottom="1px solid"
@@ -188,6 +185,10 @@ export default function Dashboard() {
               </Link>
             </NextLink>
           </Stack>
+<<<<<<< HEAD
+=======
+        ) : null}
+>>>>>>> dcd1a5c (Add mobile breakpoints)
 
 <<<<<<< HEAD
           <Stack
@@ -286,7 +287,9 @@ export default function Dashboard() {
     <Box as="section" w="100%" pos="fixed" zIndex="overlay" top="0">
 >>>>>>> c8dcb91 (Merge remote-tracking branch 'upstream/main')
       <SidebarContent
-        display={{ lg: 'unset', md: 'none', sm: 'none', base: 'none' }}
+        display={{ lg: 'flex', md: 'none', sm: 'none', base: 'none' }}
+        flexFlow="column nowrap"
+        justifyContent="space-between"
         transition="0.5s ease"
       />
       <Drawer
@@ -312,7 +315,14 @@ export default function Dashboard() {
             base: 'unset',
           }}
         >
-          <SidebarContent w="full" borderRight="none" />
+          {/* Mobile version */}
+          <SidebarContent
+            w="full"
+            borderRight="none"
+            d="flex"
+            flexFlow="column nowrap"
+            justifyContent="space-between"
+          />
         </DrawerContent>
       </Drawer>
 

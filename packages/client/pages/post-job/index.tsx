@@ -101,13 +101,17 @@ export default function CreateProject() {
 >>>>>>> 798e3dd (Convert navbar to grid to match dashboard content)
 =======
       ml={{ lg: '72', md: '0' }}
-      mt={14}
+      mt={{ lg: 14, sm: 6 }}
       boxSizing="border-box"
+<<<<<<< HEAD
       height="calc(100vh - var(--chakra-space-14))"
 >>>>>>> f308cdc (Add sidebar buttons; replace icons w tabler icons)
+=======
+      height={{ lg: "calc(100vh - var(--chakra-space-14))", sm: 'auto' }}
+>>>>>>> dcd1a5c (Add mobile breakpoints)
     >
       <Grid
-        templateColumns="repeat(5, 1fr)"
+        templateColumns={{ lg: "repeat(5, 1fr)", sm: "repeat(1, 1fr)" }}
         gap={6}
         h="100%"
         as="header"
