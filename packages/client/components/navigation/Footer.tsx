@@ -24,8 +24,8 @@ export default function Footer() {
           <Image
             src="/powered-by-vercel.svg"
             alt="Powered By Vercel"
-            width="100px"
-            height="50"
+            width="150px"
+            height="50px"
           />
         </Flex>
       </HStack>
