@@ -21,7 +21,7 @@ import JobPostModal from '../modals/jobs/JobPost';
 
 export default function JobCard({
   // Setting defaults until we start passing some form of data into the component
-  company_id = "1",
+  company_id = '1',
   position = 'Frontend Magician',
   compensation = '0.6 ETH',
   description = 'We already have the best design skills in web3. No chance you’ll be able to improve on what we’ve got but why not come along and learn something?',
@@ -109,6 +109,7 @@ export default function JobCard({
         maxW="320px"
       >
         <JobHeader companyInfo={companyInfo} />
+<<<<<<< HEAD
         <Box ml="0.5%" maxW="100%" p="40px" onClick={openJobModal}>
           <Heading variant="header5" mb="1.5%">
             {position}
@@ -124,6 +125,16 @@ export default function JobCard({
           <Text color="neutral.400" mt="1.5%">
             {description}
           </Text>
+=======
+        <Box
+          maxW="100%"
+          p="25px"
+          onClick={() => openJobModal()}
+          as="button"
+          textAlign="left"
+        >
+          {jobDetails}
+>>>>>>> 220b13a (Minor fixes)
         </Box>
 
         <Box
